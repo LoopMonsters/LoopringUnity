@@ -13,7 +13,7 @@ public static class Constants
 
     //Required for API calls for NFT data and pinging ethereum smart contract
     public const string TOKENCONTRACT = "";
-    public const string IPFSNODE = "https://monster.mypinata.cloud/ipfs/"; //Set to public node, set to private for better perfomance
+    public const string IPFSNODE = "https://ipfs.io/ipfs/"; //Set to public gateway, set to private for better perfomance
 
 
     //Scenes.
