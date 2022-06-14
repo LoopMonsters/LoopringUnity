@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+    <assembly>
+        <name>SauceControl.Blake2Fast</name>
+    </assembly>
+    <members>
+        <member name="T:Blake2Fast.Blake2b">
+            <summary>Static helper methods for BLAKE2b hashing.</summary>
+        </member>
+        <member name="F:Blake2Fast.Blake2b.DefaultDigestLength">
+            <summary>The default hash digest length in bytes.  For BLAKE2b, this value is 64.</summary>
+        </member>
+        <member name="M:Blake2Fast.Blake2b.ComputeHash(System.ReadOnlySpan{System.Byte})">
+            <summary>Perform an all-at-once BLAKE2b hash computation.</summary>
+            <remarks>If you have all the input available at once, this is the most efficient way to calculate the hash.</remarks>
+            <param name="input">The message bytes to hash.</param>
+            <returns>The computed hash digest from the message bytes in <paramref name="input" />.</returns>
+        </member>
+        <member name="M:Blake2Fast.Blake2b.ComputeHash(System.Int32,System.ReadOnlySpan{System.Byte})">
+            <summary>Perform an all-at-once BLAKE2b hash computation.</summary>
+            <remarks>If you have all the input available at once, this is the most efficient way to calculate the hash.</remarks>
+            <param name="digestLength">The hash digest length in bytes.  Valid values are 1 to 64.</param>
+            <param name="input">The message bytes to hash.</param>
+            <returns>The computed hash digest from the message bytes in <paramref name="input" />.</returns>
+        </member>
+        <member name="M:Blake2Fast.Blake2b.ComputeHash(System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte})">
+            <summary>Perform an all-at-once BLAKE2b hash computation.</summary>
+            <remarks>If you have all the input available at once, this is the most efficient way to calculate the hash.</remarks>
+            <param name="key">0 to 64 bytes of input for initializing a keyed hash.</param>
+            <param name="input">The message bytes to hash.</param>
+            <returns>The computed hash digest from the message bytes in <paramref name="input" />.</returns>
+        </member>
+        <member name="M:Blake2Fast.Blake2b.ComputeHash(System.Int32,System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte})">
+            <summary>Perform an all-at-once BLAKE2b hash computation.</summary>
+            <remarks>If you have all the input available at once, this is the most efficient way to calculate the hash.</remarks>
+            <param name="digestLength">The hash digest length in bytes.  Valid values are 1 to 64.</param>
+            <param name="key">0 to 64 bytes of input for initializing a keyed hash.</param>
+            <param name="input">The message bytes to hash.</param>
+            <returns>The computed hash digest from the message bytes in <paramref name="input" />.</returns>
+        </member>
+        <member name="M:Blake2Fast.Blake2b.ComputeAndWriteHash(System.ReadOnlySpan{System.Byte},System.Span{System.Byte})">
+            <summary>Perform an all-at-once BLAKE2b hash computation and write the hash digest to <paramref name="output" />.</summary>
+            <remarks>If you have all the input available at once, this is the most efficient way to calculate the hash.</remarks>
+            <param name="input">The message bytes to hash.</param>
+            <param name="output">Destination buffer into which the hash digest is written.  The buffer must have a capacity of at least <see cref="F:Blake2Fast.Blake2b.DefaultDigestLength" />(64) bytes.</param>
+        </member>
+        <member name="M:Blake2Fast.Blake2b.ComputeAndWriteHash(System.Int32,System.ReadOnlySpan{System.Byte},System.Span{System.Byte})">
+            <summary>Perform an all-at-once BLAKE2b hash computation and write the hash digest to <paramref name="output" />.</summary>
+            <remarks>If you have all the input available at once, this is the most efficient way to calculate the hash.</remarks>
+            <param name="digestLength">The hash digest length in bytes.  Valid values are 1 to 64.</param>
+            <param name="input">The message bytes to hash.</param>
+            <param name="output">Destination buffer into which the hash digest is written.  The buffer must have a capacity of at least <paramref name="digestLength" /> bytes.</param>
+        </member>
+        <member name="M:Blake2Fast.Blake2b.ComputeAndWriteHash(System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte},System.Span{System.Byte})">
+            <summary>Perform an all-at-once BLAKE2b hash computation and write the hash digest to <paramref name="output" />.</summary>
+            <remarks>If you have all the input available at once, this is the most efficient way to calculate the hash.</remarks>
+            <param name="key">0 to 64 bytes of input for initializing a keyed hash.</param>
+            <param name="input">The message bytes to hash.</param>
+            <param name="output">Destination buffer into which the hash digest is written.  The buffer must have a capacity of at least <see cref="F:Blake2Fast.Blake2b.DefaultDigestLength" />(64) bytes.</param>
+        </member>
+        <member name="M:Blake2Fast.Blake2b.ComputeAndWriteHash(System.Int32,System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte},System.Span{System.Byte})">
+            <summary>Perform an all-at-once BLAKE2b hash computation and write the hash digest to <paramref name="output" />.</summary>
+            <remarks>If you have all the input available at once, this is the most efficient way to calculate the hash.</remarks>
+            <param name="digestLength">The hash digest length in bytes.  Valid values are 1 to 64.</param>
+            <param name="key">0 to 64 bytes of input for initializing a keyed hash.</param>
+            <param name="input">The message bytes to hash.</param>
+            <param name="output">Destination buffer into which the hash digest is written.  The buffer must have a capacity of at least <paramref name="digestLength" /> bytes.</param>
+        </member>
+        <member name="M:Blake2Fast.Blake2b.CreateIncrementalHasher">
+            <summary>Create and initialize an incremental BLAKE2b hash computation.</summary>
+            <remarks>If you will receive the input in segments rather than all at once, this is the most efficient way to calculate the hash.</remarks>
+            <returns>An <see cref="T:Blake2Fast.Implementation.Blake2bHashState" /> instance for updating and finalizing the hash.</returns>
+        </member>
+        <member name="M:Blake2Fast.Blake2b.CreateIncrementalHasher(System.Int32)">
+            <summary>Create and initialize an incremental BLAKE2b hash computation.</summary>
+            <remarks>If you will receive the input in segments rather than all at once, this is the most efficient way to calculate the hash.</remarks>
+            <param name="digestLength">The hash digest length in bytes.  Valid values are 1 to 64.</param>
+            <returns>An <see cref="T:Blake2Fast.Implementation.Blake2bHashState" /> instance for updating and finalizing the hash.</returns>
+        </member>
+        <member name="M:Blake2Fast.Blake2b.CreateIncrementalHasher(System.ReadOnlySpan{System.Byte})">
+            <summary>Create and initialize an incremental BLAKE2b hash computation.</summary>
+            <remarks>If you will receive the input in segments rather than all at once, this is the most efficient way to calculate the hash.</remarks>
+            <param name="key">0 to 64 bytes of input for initializing a keyed hash.</param>
+            <returns>An <see cref="T:Blake2Fast.Implementation.Blake2bHashState" /> instance for updating and finalizing the hash.</returns>
+        </member>
+        <member name="M:Blake2Fast.Blake2b.CreateIncrementalHasher(System.Int32,System.ReadOnlySpan{System.Byte})">
+            <summary>Create and initialize an incremental BLAKE2b hash computation.</summary>
+            <remarks>If you will receive the input in segments rather than all at once, this is the most efficient way to calculate the hash.</remarks>
+            <param name="digestLength">The hash digest length in bytes.  Valid values are 1 to 64.</param>
+            <param name="key">0 to 64 bytes of input for initializing a keyed hash.</param>
+            <returns>An <see cref="T:Blake2Fast.Implementation.Blake2bHashState" /> instance for updating and finalizing the hash.</returns>
+        </member>
+        <member name="M:Blake2Fast.Blake2b.CreateHashAlgorithm">
+            <summary>Creates and initializes a <see cref="T:System.Security.Cryptography.HashAlgorithm" /> instance that implements BLAKE2b hashing.</summary>
+            <remarks>Use this only if you require an implementation of <see cref="T:System.Security.Cryptography.HashAlgorithm" />.  It is less efficient than the direct methods.</remarks>
+            <returns>A <see cref="T:System.Security.Cryptography.HashAlgorithm" /> instance.</returns>
+        </member>
+        <member name="M:Blake2Fast.Blake2b.CreateHashAlgorithm(System.Int32)">
+            <summary>Creates and initializes a <see cref="T:System.Security.Cryptography.HashAlgorithm" /> instance that implements BLAKE2b hashing.</summary>
+            <remarks>Use this only if you require an implementation of <see cref="T:System.Security.Cryptography.HashAlgorithm" />.  It is less efficient than the direct methods.</remarks>
+            <param name="digestLength">The hash digest length in bytes.  Valid values are 1 to 64.</param>
+            <returns>A <see cref="T:System.Security.Cryptography.HashAlgorithm" /> instance.</returns>
+        </member>
+        <member name="M:Blake2Fast.Blake2b.CreateHMAC(System.ReadOnlySpan{System.Byte})">
+            <summary>Creates and initializes an <see cref="T:System.Security.Cryptography.HMAC" /> instance that implements BLAKE2b keyed hashing.  Uses BLAKE2's built-in support for keyed hashing rather than the normal 2-pass approach.</summary>
+            <remarks>Use this only if you require an implementation of <see cref="T:System.Security.Cryptography.HMAC" />.  It is less efficient than the direct methods.</remarks>
+            <param name="key">0 to 64 bytes of input for initializing the keyed hash.</param>
+            <returns>An <see cref="T:System.Security.Cryptography.HMAC" /> instance.</returns>
+        </member>
+        <member name="M:Blake2Fast.Blake2b.CreateHMAC(System.Int32,System.ReadOnlySpan{System.Byte})">
+            <summary>Creates and initializes an <see cref="T:System.Security.Cryptography.HMAC" /> instance that implements BLAKE2b keyed hashing.  Uses BLAKE2's built-in support for keyed hashing rather than the normal 2-pass approach.</summary>
+            <remarks>Use this only if you require an implementation of <see cref="T:System.Security.Cryptography.HMAC" />.  It is less efficient than the direct methods.</remarks>
+            <param name="digestLength">The hash digest length in bytes.  Valid values are 1 to 64.</param>
+            <param name="key">0 to 64 bytes of input for initializing the keyed hash.</param>
+            <returns>An <see cref="T:System.Security.Cryptography.HMAC" /> instance.</returns>
+        </member>
+        <member name="T:Blake2Fast.Implementation.Blake2bHashState">
+            <summary>Defines the state associated with an incremental BLAKE2b hashing operation.</summary>
+            <remarks>Instances of this struct must be created by <see cref="M:Blake2Fast.Blake2b.CreateIncrementalHasher" />.  An instance created directly will be unusable.</remarks>
+        </member>
+        <member name="P:Blake2Fast.Implementation.Blake2bHashState.DigestLength">
+            <summary>The hash digest length for this instance, in bytes.</summary>
+        </member>
+        <member name="M:Blake2Fast.Implementation.Blake2bHashState.Update``1(System.ReadOnlySpan{``0})">
+            <summary>Update the hash state with the bytes of all values in <paramref name="input" />.</summary>
+            <param name="input">The message bytes to add to the hash state.</param>
+            <typeparam name="T">The type of the data that will be added to the hash state.  It must be a value type and must not contain any reference type fields.</typeparam>
+            <remarks>
+              The <typeparamref name="T" /> value will be added to the hash state in memory layout order, including any padding bytes.
+              Use caution when using this overload with non-primitive structs or when hash values are to be compared across machines with different struct layouts or byte orders.
+              <see cref="T:System.Byte" /> is the only type that is guaranteed to be consistent across platforms.
+            </remarks>
+            <exception cref="T:System.NotSupportedException">Thrown when <typeparamref name="T" /> is a reference type or contains any fields of reference types.</exception>
+        </member>
+        <member name="M:Blake2Fast.Implementation.Blake2bHashState.Update``1(System.Span{``0})">
+            <summary>Update the hash state with the bytes of all values in <paramref name="input" />.</summary>
+            <param name="input">The message bytes to add to the hash state.</param>
+            <typeparam name="T">The type of the data that will be added to the hash state.  It must be a value type and must not contain any reference type fields.</typeparam>
+            <remarks>
+              The <typeparamref name="T" /> value will be added to the hash state in memory layout order, including any padding bytes.
+              Use caution when using this overload with non-primitive structs or when hash values are to be compared across machines with different struct layouts or byte orders.
+              <see cref="T:System.Byte" /> is the only type that is guaranteed to be consistent across platforms.
+            </remarks>
+            <exception cref="T:System.NotSupportedException">Thrown when <typeparamref name="T" /> is a reference type or contains any fields of reference types.</exception>
+        </member>
+        <member name="M:Blake2Fast.Implementation.Blake2bHashState.Update``1(System.ArraySegment{``0})">
+            <summary>Update the hash state with the bytes of all values in <paramref name="input" />.</summary>
+            <param name="input">The message bytes to add to the hash state.</param>
+            <typeparam name="T">The type of the data that will be added to the hash state.  It must be a value type and must not contain any reference type fields.</typeparam>
+            <remarks>
+              The <typeparamref name="T" /> value will be added to the hash state in memory layout order, including any padding bytes.
+              Use caution when using this overload with non-primitive structs or when hash values are to be compared across machines with different struct layouts or byte orders.
+              <see cref="T:System.Byte" /> is the only type that is guaranteed to be consistent across platforms.
+            </remarks>
+            <exception cref="T:System.NotSupportedException">Thrown when <typeparamref name="T" /> is a reference type or contains any fields of reference types.</exception>
+        </member>
+        <member name="M:Blake2Fast.Implementation.Blake2bHashState.Update``1(``0[])">
+            <summary>Update the hash state with the bytes of all values in <paramref name="input" />.</summary>
+            <param name="input">The message bytes to add to the hash state.</param>
+            <typeparam name="T">The type of the data that will be added to the hash state.  It must be a value type and must not contain any reference type fields.</typeparam>
+            <remarks>
+              The <typeparamref name="T" /> value will be added to the hash state in memory layout order, including any padding bytes.
+              Use caution when using this overload with non-primitive structs or when hash values are to be compared across machines with different struct layouts or byte orders.
+              <see cref="T:System.Byte" /> is the only type that is guaranteed to be consistent across platforms.
+            </remarks>
+            <exception cref="T:System.NotSupportedException">Thrown when <typeparamref name="T" /> is a reference type or contains any fields of reference types.</exception>
+        </member>
+        <member name="M:Blake2Fast.Implementation.Blake2bHashState.Update``1(``0)">
+            <summary>Update the hash state with the bytes of all values in <paramref name="input" />.</summary>
+            <param name="input">The message bytes to add to the hash state.</param>
+            <typeparam name="T">The type of the data that will be added to the hash state.  It must be a value type and must not contain any reference type fields.</typeparam>
+            <remarks>
+              The <typeparamref name="T" /> value will be added to the hash state in memory layout order, including any padding bytes.
+              Use caution when using this overload with non-primitive structs or when hash values are to be compared across machines with different struct layouts or byte orders.
+              <see cref="T:System.Byte" /> is the only type that is guaranteed to be consistent across platforms.
+            </remarks>
+            <exception cref="T:System.NotSupportedException">Thrown when <typeparamref name="T" /> is a reference type or contains any fields of reference types.</exception>
+        </member>
+        <member name="M:Blake2Fast.Implementation.Blake2bHashState.Finish">
+            <summary>Finalize the hash, and return the computed digest.</summary>
+            <returns>The computed hash digest.</returns>
+        </member>
+        <member name="M:Blake2Fast.Implementation.Blake2bHashState.Finish(System.Span{System.Byte})">
+            <summary>Finalize the hash, and copy the computed digest to <paramref name="output" />.</summary>
+            <param name="output">The buffer into which the hash digest should be written.  The buffer must have a capacity of at least <see cref="P:Blake2Fast.IBlake2Incremental.DigestLength" /> bytes for the method to succeed.</param>
+        </member>
+        <member name="M:Blake2Fast.Implementation.Blake2bHashState.TryFinish(System.Span{System.Byte},System.Int32@)">
+            <summary>Finalize the hash, and copy the computed digest to <paramref name="output" />.</summary>
+            <param name="output">The buffer into which the hash digest should be written.  The buffer must have a capacity of at least <see cref="P:Blake2Fast.IBlake2Incremental.DigestLength" /> bytes for the method to succeed.</param>
+            <param name="bytesWritten">On return, contains the number of bytes written to <paramref name="output" />.</param>
+            <returns>True if the <paramref name="output" /> buffer was large enough to hold the digest, otherwise False.</returns>
+        </member>
+        <member name="T:Blake2Fast.Implementation.Blake2sHashState">
+            <summary>Defines the state associated with an incremental BLAKE2s hashing operation.</summary>
+            <remarks>Instances of this struct must be created by <see cref="M:Blake2Fast.Blake2s.CreateIncrementalHasher" />.  An instance created directly will be unusable.</remarks>
+        </member>
+        <member name="P:Blake2Fast.Implementation.Blake2sHashState.DigestLength">
+            <summary>The hash digest length for this instance, in bytes.</summary>
+        </member>
+        <member name="M:Blake2Fast.Implementation.Blake2sHashState.Update``1(System.ReadOnlySpan{``0})">
+            <summary>Update the hash state with the bytes of all values in <paramref name="input" />.</summary>
+            <param name="input">The message bytes to add to the hash state.</param>
+            <typeparam name="T">The type of the data that will be added to the hash state.  It must be a value type and must not contain any reference type fields.</typeparam>
+            <remarks>
+              The <typeparamref name="T" /> value will be added to the hash state in memory layout order, including any padding bytes.
+              Use caution when using this overload with non-primitive structs or when hash values are to be compared across machines with different struct layouts or byte orders.
+              <see cref="T:System.Byte" /> is the only type that is guaranteed to be consistent across platforms.
+            </remarks>
+            <exception cref="T:System.NotSupportedException">Thrown when <typeparamref name="T" /> is a reference type or contains any fields of reference types.</exception>
+        </member>
+        <member name="M:Blake2Fast.Implementation.Blake2sHashState.Update``1(System.Span{``0})">
+            <summary>Update the hash state with the bytes of all values in <paramref name="input" />.</summary>
+            <param name="input">The message bytes to add to the hash state.</param>
+            <typeparam name="T">The type of the data that will be added to the hash state.  It must be a value type and must not contain any reference type fields.</typeparam>
+            <remarks>
+              The <typeparamref name="T" /> value will be added to the hash state in memory layout order, including any padding bytes.
+              Use caution when using this overload with non-primitive structs or when hash values are to be compared across machines with different struct layouts or byte orders.
+              <see cref="T:System.Byte" /> is the only type that is guaranteed to be consistent across platforms.
+            </remarks>
+            <exception cref="T:System.NotSupportedException">Thrown when <typeparamref name="T" /> is a reference type or contains any fields of reference types.</exception>
+        </member>
+        <member name="M:Blake2Fast.Implementation.Blake2sHashState.Update``1(System.ArraySegment{``0})">
+            <summary>Update the hash state with the bytes of all values in <paramref name="input" />.</summary>
+            <param name="input">The message bytes to add to the hash state.</param>
+            <typeparam name="T">The type of the data that will be added to the hash state.  It must be a value type and must not contain any reference type fields.</typeparam>
+            <remarks>
+              The <typeparamref name="T" /> value will be added to the hash state in memory layout order, including any padding bytes.
+              Use caution when using this overload with non-primitive structs or when hash values are to be compared across machines with different struct layouts or byte orders.
+              <see cref="T:System.Byte" /> is the only type that is guaranteed to be consistent across platforms.
+            </remarks>
+            <exception cref="T:System.NotSupportedException">Thrown when <typeparamref name="T" /> is a reference type or contains any fields of reference types.</exception>
+        </member>
+        <member name="M:Blake2Fast.Implementation.Blake2sHashState.Update``1(``0[])">
+            <summary>Update the hash state with the bytes of all values in <paramref name="input" />.</summary>
+            <param name="input">The message bytes to add to the hash state.</param>
+            <typeparam name="T">The type of the data that will be added to the hash state.  It must be a value type and must not contain any reference type fields.</typeparam>
+            <remarks>
+              The <typeparamref name="T" /> value will be added to the hash state in memory layout order, including any padding bytes.
+              Use caution when using this overload with non-primitive structs or when hash values are to be compared across machines with different struct layouts or byte orders.
+              <see cref="T:System.Byte" /> is the only type that is guaranteed to be consistent across platforms.
+            </remarks>
+            <exception cref="T:System.NotSupportedException">Thrown when <typeparamref name="T" /> is a reference type or contains any fields of reference types.</exception>
+        </member>
+        <member name="M:Blake2Fast.Implementation.Blake2sHashState.Update``1(``0)">
+            <summary>Update the hash state with the bytes of all values in <paramref name="input" />.</summary>
+            <param name="input">The message bytes to add to the hash state.</param>
+            <typeparam name="T">The type of the data that will be added to the hash state.  It must be a value type and must not contain any reference type fields.</typeparam>
+            <remarks>
+              The <typeparamref name="T" /> value will be added to the hash state in memory layout order, including any padding bytes.
+              Use caution when using this overload with non-primitive structs or when hash values are to be compared across machines with different struct layouts or byte orders.
+              <see cref="T:System.Byte" /> is the only type that is guaranteed to be consistent across platforms.
+            </remarks>
+            <exception cref="T:System.NotSupportedException">Thrown when <typeparamref name="T" /> is a reference type or contains any fields of reference types.</exception>
+        </member>
+        <member name="M:Blake2Fast.Implementation.Blake2sHashState.Finish">
+            <summary>Finalize the hash, and return the computed digest.</summary>
+            <returns>The computed hash digest.</returns>
+        </member>
+        <member name="M:Blake2Fast.Implementation.Blake2sHashState.Finish(System.Span{System.Byte})">
+            <summary>Finalize the hash, and copy the computed digest to <paramref name="output" />.</summary>
+            <param name="output">The buffer into which the hash digest should be written.  The buffer must have a capacity of at least <see cref="P:Blake2Fast.IBlake2Incremental.DigestLength" /> bytes for the method to succeed.</param>
+        </member>
+        <member name="M:Blake2Fast.Implementation.Blake2sHashState.TryFinish(System.Span{System.Byte},System.Int32@)">
+            <summary>Finalize the hash, and copy the computed digest to <paramref name="output" />.</summary>
+            <param name="output">The buffer into which the hash digest should be written.  The buffer must have a capacity of at least <see cref="P:Blake2Fast.IBlake2Incremental.DigestLength" /> bytes for the method to succeed.</param>
+            <param name="bytesWritten">On return, contains the number of bytes written to <paramref name="output" />.</param>
+            <returns>True if the <paramref name="output" /> buffer was large enough to hold the digest, otherwise False.</returns>
+        </member>
+        <member name="N:Blake2Fast.Implementation">
+            <summary>
+              Contains BLAKE2 hash state implementation structs.  Use the <c>CreateIncrementalHasher</c> factory methods
+              to create and initialize the state structs.  The state structs will not be usable if created directly.
+            </summary>
+        </member>
+        <member name="T:Blake2Fast.Blake2s">
+            <summary>Static helper methods for BLAKE2s hashing.</summary>
+        </member>
+        <member name="F:Blake2Fast.Blake2s.DefaultDigestLength">
+            <summary>The default hash digest length in bytes.  For BLAKE2s, this value is 32.</summary>
+        </member>
+        <member name="M:Blake2Fast.Blake2s.ComputeHash(System.ReadOnlySpan{System.Byte})">
+            <summary>Perform an all-at-once BLAKE2s hash computation.</summary>
+            <remarks>If you have all the input available at once, this is the most efficient way to calculate the hash.</remarks>
+            <param name="input">The message bytes to hash.</param>
+            <returns>The computed hash digest from the message bytes in <paramref name="input" />.</returns>
+        </member>
+        <member name="M:Blake2Fast.Blake2s.ComputeHash(System.Int32,System.ReadOnlySpan{System.Byte})">
+            <summary>Perform an all-at-once BLAKE2s hash computation.</summary>
+            <remarks>If you have all the input available at once, this is the most efficient way to calculate the hash.</remarks>
+            <param name="digestLength">The hash digest length in bytes.  Valid values are 1 to 32.</param>
+            <param name="input">The message bytes to hash.</param>
+            <returns>The computed hash digest from the message bytes in <paramref name="input" />.</returns>
+        </member>
+        <member name="M:Blake2Fast.Blake2s.ComputeHash(System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte})">
+            <summary>Perform an all-at-once BLAKE2s hash computation.</summary>
+            <remarks>If you have all the input available at once, this is the most efficient way to calculate the hash.</remarks>
+            <param name="key">0 to 32 bytes of input for initializing a keyed hash.</param>
+            <param name="input">The message bytes to hash.</param>
+            <returns>The computed hash digest from the message bytes in <paramref name="input" />.</returns>
+        </member>
+        <member name="M:Blake2Fast.Blake2s.ComputeHash(System.Int32,System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte})">
+            <summary>Perform an all-at-once BLAKE2s hash computation.</summary>
+            <remarks>If you have all the input available at once, this is the most efficient way to calculate the hash.</remarks>
+            <param name="digestLength">The hash digest length in bytes.  Valid values are 1 to 32.</param>
+            <param name="key">0 to 32 bytes of input for initializing a keyed hash.</param>
+            <param name="input">The message bytes to hash.</param>
+            <returns>The computed hash digest from the message bytes in <paramref name="input" />.</returns>
+        </member>
+        <member name="M:Blake2Fast.Blake2s.ComputeAndWriteHash(System.ReadOnlySpan{System.Byte},System.Span{System.Byte})">
+            <summary>Perform an all-at-once BLAKE2s hash computation and write the hash digest to <paramref name="output" />.</summary>
+            <remarks>If you have all the input available at once, this is the most efficient way to calculate the hash.</remarks>
+            <param name="input">The message bytes to hash.</param>
+            <param name="output">Destination buffer into which the hash digest is written.  The buffer must have a capacity of at least <see cref="F:Blake2Fast.Blake2s.DefaultDigestLength" />(32) bytes.</param>
+        </member>
+        <member name="M:Blake2Fast.Blake2s.ComputeAndWriteHash(System.Int32,System.ReadOnlySpan{System.Byte},System.Span{System.Byte})">
+            <summary>Perform an all-at-once BLAKE2s hash computation and write the hash digest to <paramref name="output" />.</summary>
+            <remarks>If you have all the input available at once, this is the most efficient way to calculate the hash.</remarks>
+            <param name="digestLength">The hash digest length in bytes.  Valid values are 1 to 32.</param>
+            <param name="input">The message bytes to hash.</param>
+            <param name="output">Destination buffer into which the hash digest is written.  The buffer must have a capacity of at least <paramref name="digestLength" /> bytes.</param>
+        </member>
+        <member name="M:Blake2Fast.Blake2s.ComputeAndWriteHash(System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte},System.Span{System.Byte})">
+            <summary>Perform an all-at-once BLAKE2s hash computation and write the hash digest to <paramref name="output" />.</summary>
+            <remarks>If you have all the input available at once, this is the most efficient way to calculate the hash.</remarks>
+            <param name="key">0 to 32 bytes of input for initializing a keyed hash.</param>
+            <param name="input">The message bytes to hash.</param>
+            <param name="output">Destination buffer into which the hash digest is written.  The buffer must have a capacity of at least <see cref="F:Blake2Fast.Blake2s.DefaultDigestLength" />(32) bytes.</param>
+        </member>
+        <member name="M:Blake2Fast.Blake2s.ComputeAndWriteHash(System.Int32,System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte},System.Span{System.Byte})">
+            <summary>Perform an all-at-once BLAKE2s hash computation and write the hash digest to <paramref name="output" />.</summary>
+            <remarks>If you have all the input available at once, this is the most efficient way to calculate the hash.</remarks>
+            <param name="digestLength">The hash digest length in bytes.  Valid values are 1 to 32.</param>
+            <param name="key">0 to 32 bytes of input for initializing a keyed hash.</param>
+            <param name="input">The message bytes to hash.</param>
+            <param name="output">Destination buffer into which the hash digest is written.  The buffer must have a capacity of at least <paramref name="digestLength" /> bytes.</param>
+        </member>
+        <member name="M:Blake2Fast.Blake2s.CreateIncrementalHasher">
+            <summary>Create and initialize an incremental BLAKE2s hash computation.</summary>
+            <remarks>If you will receive the input in segments rather than all at once, this is the most efficient way to calculate the hash.</remarks>
+            <returns>An <see cref="T:Blake2Fast.Implementation.Blake2sHashState" /> instance for updating and finalizing the hash.</returns>
+        </member>
+        <member name="M:Blake2Fast.Blake2s.CreateIncrementalHasher(System.Int32)">
+            <summary>Create and initialize an incremental BLAKE2s hash computation.</summary>
+            <remarks>If you will receive the input in segments rather than all at once, this is the most efficient way to calculate the hash.</remarks>
+            <param name="digestLength">The hash digest length in bytes.  Valid values are 1 to 32.</param>
+            <returns>An <see cref="T:Blake2Fast.Implementation.Blake2sHashState" /> instance for updating and finalizing the hash.</returns>
+        </member>
+        <member name="M:Blake2Fast.Blake2s.CreateIncrementalHasher(System.ReadOnlySpan{System.Byte})">
+            <summary>Create and initialize an incremental BLAKE2s hash computation.</summary>
+            <remarks>If you will receive the input in segments rather than all at once, this is the most efficient way to calculate the hash.</remarks>
+            <param name="key">0 to 32 bytes of input for initializing a keyed hash.</param>
+            <returns>An <see cref="T:Blake2Fast.Implementation.Blake2sHashState" /> instance for updating and finalizing the hash.</returns>
+        </member>
+        <member name="M:Blake2Fast.Blake2s.CreateIncrementalHasher(System.Int32,System.ReadOnlySpan{System.Byte})">
+            <summary>Create and initialize an incremental BLAKE2s hash computation.</summary>
+            <remarks>If you will receive the input in segments rather than all at once, this is the most efficient way to calculate the hash.</remarks>
+            <param name="digestLength">The hash digest length in bytes.  Valid values are 1 to 32.</param>
+            <param name="key">0 to 32 bytes of input for initializing a keyed hash.</param>
+            <returns>An <see cref="T:Blake2Fast.Implementation.Blake2sHashState" /> instance for updating and finalizing the hash.</returns>
+        </member>
+        <member name="M:Blake2Fast.Blake2s.CreateHashAlgorithm">
+            <summary>Creates and initializes a <see cref="T:System.Security.Cryptography.HashAlgorithm" /> instance that implements BLAKE2s hashing.</summary>
+            <remarks>Use this only if you require an implementation of <see cref="T:System.Security.Cryptography.HashAlgorithm" />.  It is less efficient than the direct methods.</remarks>
+            <returns>A <see cref="T:System.Security.Cryptography.HashAlgorithm" /> instance.</returns>
+        </member>
+        <member name="M:Blake2Fast.Blake2s.CreateHashAlgorithm(System.Int32)">
+            <summary>Creates and initializes a <see cref="T:System.Security.Cryptography.HashAlgorithm" /> instance that implements BLAKE2s hashing.</summary>
+            <remarks>Use this only if you require an implementation of <see cref="T:System.Security.Cryptography.HashAlgorithm" />.  It is less efficient than the direct methods.</remarks>
+            <param name="digestLength">The hash digest length in bytes.  Valid values are 1 to 32.</param>
+            <returns>A <see cref="T:System.Security.Cryptography.HashAlgorithm" /> instance.</returns>
+        </member>
+        <member name="M:Blake2Fast.Blake2s.CreateHMAC(System.ReadOnlySpan{System.Byte})">
+            <summary>Creates and initializes an <see cref="T:System.Security.Cryptography.HMAC" /> instance that implements BLAKE2s keyed hashing.  Uses BLAKE2's built-in support for keyed hashing rather than the normal 2-pass approach.</summary>
+            <remarks>Use this only if you require an implementation of <see cref="T:System.Security.Cryptography.HMAC" />.  It is less efficient than the direct methods.</remarks>
+            <param name="key">0 to 32 bytes of input for initializing the keyed hash.</param>
+            <returns>An <see cref="T:System.Security.Cryptography.HMAC" /> instance.</returns>
+        </member>
+        <member name="M:Blake2Fast.Blake2s.CreateHMAC(System.Int32,System.ReadOnlySpan{System.Byte})">
+            <summary>Creates and initializes an <see cref="T:System.Security.Cryptography.HMAC" /> instance that implements BLAKE2s keyed hashing.  Uses BLAKE2's built-in support for keyed hashing rather than the normal 2-pass approach.</summary>
+            <remarks>Use this only if you require an implementation of <see cref="T:System.Security.Cryptography.HMAC" />.  It is less efficient than the direct methods.</remarks>
+            <param name="digestLength">The hash digest length in bytes.  Valid values are 1 to 32.</param>
+            <param name="key">0 to 32 bytes of input for initializing the keyed hash.</param>
+            <returns>An <see cref="T:System.Security.Cryptography.HMAC" /> instance.</returns>
+        </member>
+        <member name="T:Blake2Fast.IBlake2Incremental">
+            <summary>Defines an incremental BLAKE2 hashing operation.</summary>
+            <remarks>Allows the hash to be computed as portions of the message become available, rather than all at once.</remarks>
+        </member>
+        <member name="P:Blake2Fast.IBlake2Incremental.DigestLength">
+            <summary>The hash digest length for this instance, in bytes.</summary>
+        </member>
+        <member name="M:Blake2Fast.IBlake2Incremental.Update``1(System.ReadOnlySpan{``0})">
+            <summary>Update the hash state with the bytes of all values in <paramref name="input" />.</summary>
+            <param name="input">The message bytes to add to the hash state.</param>
+            <typeparam name="T">The type of the data that will be added to the hash state.  It must be a value type and must not contain any reference type fields.</typeparam>
+            <remarks>
+              The <typeparamref name="T" /> value will be added to the hash state in memory layout order, including any padding bytes.
+              Use caution when using this overload with non-primitive structs or when hash values are to be compared across machines with different struct layouts or byte orders.
+              <see cref="T:System.Byte" /> is the only type that is guaranteed to be consistent across platforms.
+            </remarks>
+            <exception cref="T:System.NotSupportedException">Thrown when <typeparamref name="T" /> is a reference type or contains any fields of reference types.</exception>
+        </member>
+        <member name="M:Blake2Fast.IBlake2Incremental.Update``1(System.Span{``0})">
+            <summary>Update the hash state with the bytes of all values in <paramref name="input" />.</summary>
+            <param name="input">The message bytes to add to the hash state.</param>
+            <typeparam name="T">The type of the data that will be added to the hash state.  It must be a value type and must not contain any reference type fields.</typeparam>
+            <remarks>
+              The <typeparamref name="T" /> value will be added to the hash state in memory layout order, including any padding bytes.
+              Use caution when using this overload with non-primitive structs or when hash values are to be compared across machines with different struct layouts or byte orders.
+              <see cref="T:System.Byte" /> is the only type that is guaranteed to be consistent across platforms.
+            </remarks>
+            <exception cref="T:System.NotSupportedException">Thrown when <typeparamref name="T" /> is a reference type or contains any fields of reference types.</exception>
+        </member>
+        <member name="M:Blake2Fast.IBlake2Incremental.Update``1(System.ArraySegment{``0})">
+            <summary>Update the hash state with the bytes of all values in <paramref name="input" />.</summary>
+            <param name="input">The message bytes to add to the hash state.</param>
+            <typeparam name="T">The type of the data that will be added to the hash state.  It must be a value type and must not contain any reference type fields.</typeparam>
+            <remarks>
+              The <typeparamref name="T" /> value will be added to the hash state in memory layout order, including any padding bytes.
+              Use caution when using this overload with non-primitive structs or when hash values are to be compared across machines with different struct layouts or byte orders.
+              <see cref="T:System.Byte" /> is the only type that is guaranteed to be consistent across platforms.
+            </remarks>
+            <exception cref="T:System.NotSupportedException">Thrown when <typeparamref name="T" /> is a reference type or contains any fields of reference types.</exception>
+        </member>
+        <member name="M:Blake2Fast.IBlake2Incremental.Update``1(``0[])">
+            <summary>Update the hash state with the bytes of all values in <paramref name="input" />.</summary>
+            <param name="input">The message bytes to add to the hash state.</param>
+            <typeparam name="T">The type of the data that will be added to the hash state.  It must be a value type and must not contain any reference type fields.</typeparam>
+            <remarks>
+              The <typeparamref name="T" /> value will be added to the hash state in memory layout order, including any padding bytes.
+              Use caution when using this overload with non-primitive structs or when hash values are to be compared across machines with different struct layouts or byte orders.
+              <see cref="T:System.Byte" /> is the only type that is guaranteed to be consistent across platforms.
+            </remarks>
+            <exception cref="T:System.NotSupportedException">Thrown when <typeparamref name="T" /> is a reference type or contains any fields of reference types.</exception>
+        </member>
+        <member name="M:Blake2Fast.IBlake2Incremental.Update``1(``0)">
+            <summary>Update the hash state with the bytes of the <paramref name="input" /> value.</summary>
+            <param name="input">The message bytes to add to the hash state.</param>
+            <typeparam name="T">The type of the data that will be added to the hash state.  It must be a value type and must not contain any reference type fields.</typeparam>
+            <remarks>
+              The <typeparamref name="T" /> value will be added to the hash state in memory layout order, including any padding bytes.
+              Use caution when using this overload with non-primitive structs or when hash values are to be compared across machines with different struct layouts or byte orders.
+              <see cref="T:System.Byte" /> is the only type that is guaranteed to be consistent across platforms.
+            </remarks>
+            <exception cref="T:System.NotSupportedException">Thrown when <typeparamref name="T" /> is a reference type or contains any fields of reference types.</exception>
+        </member>
+        <member name="M:Blake2Fast.IBlake2Incremental.Finish">
+            <summary>Finalize the hash, and return the computed digest.</summary>
+            <returns>The computed hash digest.</returns>
+        </member>
+        <member name="M:Blake2Fast.IBlake2Incremental.Finish(System.Span{System.Byte})">
+            <summary>Finalize the hash, and copy the computed digest to <paramref name="output" />.</summary>
+            <param name="output">The buffer into which the hash digest should be written.  The buffer must have a capacity of at least <see cref="P:Blake2Fast.IBlake2Incremental.DigestLength" /> bytes for the method to succeed.</param>
+        </member>
+        <member name="M:Blake2Fast.IBlake2Incremental.TryFinish(System.Span{System.Byte},System.Int32@)">
+            <summary>Finalize the hash, and copy the computed digest to <paramref name="output" />.</summary>
+            <param name="output">The buffer into which the hash digest should be written.  The buffer must have a capacity of at least <see cref="P:Blake2Fast.IBlake2Incremental.DigestLength" /> bytes for the method to succeed.</param>
+            <param name="bytesWritten">On return, contains the number of bytes written to <paramref name="output" />.</param>
+            <returns>True if the <paramref name="output" /> buffer was large enough to hold the digest, otherwise False.</returns>
+        </member>
+    </members>
+</doc>
