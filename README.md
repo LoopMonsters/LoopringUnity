@@ -32,7 +32,7 @@ All of the responses from these functions are stored in an object with all of it
 | GetAPIKey | Gets users L2 API Key |
 | GetAccountIDTask | Gets users account information |
 | GetTokenBalance | Gets users NFT data |
-| ResolveENS | [Gets Loopring ENS|
+| ResolveENS | Gets Loopring ENS|
 | GetMetadata | Gets Metadata from IPFS |
 
 
