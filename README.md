@@ -8,7 +8,7 @@ Notes:
 - This has been tested and working in Unity Verion 2020.3.30f1.
 - You MUST switch your taget platform to WebGL (File > Build Settings).
 - [Chainsafe](https://github.com/ChainSafe/) SDK is used to query an ethereum smart contract.
-- [WalletConnectUnity](https://github.com/WalletConnect/WalletConnectUnity) is used to handle the wallet connect authentication and signing.
+- [WalletConnectUnity](https://github.com/WalletConnect/WalletConnectUnity) is used to handle the WalletConnect authentication and signing.
 
 
 ## Features
