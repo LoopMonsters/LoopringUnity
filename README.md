@@ -49,7 +49,7 @@ All of the responses from these functions are stored in an object with all of it
 ## Security
 
 Due to handling a Loopring API key, precautions are taken to ensure it stays secure. After it has been used to query the data, it is wiped from the app.
-You **ALWAYS** want to ensure your API and Privatekey are being handled safely, if you open the network tab (f12), you can see where the API key is being sent (Looprings API), if you notice an app that sends data to an external location, **PLEASE REPORT IT IMMEDIATELY** that that means your API +/ Private key has been potentially comprimised.
+You **ALWAYS** want to ensure your API and Privatekey are being handled safely, if you open the network tab (f12), you can see where the API key is being sent (Looprings API), if you notice an app that sends data to an external location, **PLEASE REPORT IT IMMEDIATELY** that that means your API +/ Private key has been potentially compromised.
 
 ## Support
 Feel free to raise any issues if you come across any problems, I will try to resolve them asap.
