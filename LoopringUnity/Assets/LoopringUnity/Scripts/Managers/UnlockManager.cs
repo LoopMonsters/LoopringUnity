@@ -101,7 +101,18 @@ public class UnlockManager : MonoBehaviour
             //Sets empty string to hold the response of the signed message.
             string response = "";
 
-            
+            //*sometimes* it fails to fetch the account keyseed, but also the keyNonce can be different,
+            //if the account information is not empty or null, we replace the keyNonce at the end.
+            if (m_Account.keySeed != "" || m_Account.keySeed != null)
+            {
+                _keyseedMsg = _keyseedMsg + (m_Account.keyNonce - 1).ToString();
+            }
+            else
+            {
+                Debug.Log("failed to fetch account info");
+                _keyseedMsg = _keyseedMsg + "0";
+            }
+
             //Checks which wallet the user has, as WalletConnect has a different signing method,
             //and then signs the keySeed message.
             switch (StateMachine.currentWallet)

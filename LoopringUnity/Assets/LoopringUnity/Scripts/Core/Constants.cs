@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 public static class Constants
 {
     //This is not a constant, but its easier to keep this value here.
@@ -24,6 +26,8 @@ public static class Constants
 
     //Users NFT data
     public static TokenJson Tokens;
+
+    public static List<metadataJson> userMetadatas = new List<metadataJson>();
 
 
 }

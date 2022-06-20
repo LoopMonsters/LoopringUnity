@@ -9,5 +9,4 @@ public class metadataJson
     public string description;
     public string image;
     public string animation_url;
-    public string model;
 }
