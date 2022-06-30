@@ -9,7 +9,7 @@ public class SmartContract : MonoBehaviour
     public List<string> nftIds = new List<string>();
 
     private List<metadataJson> m_metadatas = new List<metadataJson>();
-    private APICaller m_client;
+    private APICaller m_client = new APICaller();
 
 
     void Start()
@@ -24,7 +24,13 @@ public class SmartContract : MonoBehaviour
             }
         }
     }
-
+    public async void QuertSmartContract()
+    {
+        
+        Debug.Log("Starting DL");
+        await QuerySC();
+        Debug.Log("DL Finished");
+    }
     public async Task QuerySC()
     {
         string _chain = "ethereum";
@@ -41,9 +47,11 @@ public class SmartContract : MonoBehaviour
             string _response = await EVM.Call(_chain, _network, _contract, _abi, _method, _args);
             string _snippedResponse = _response.Remove(0, 7);
             m_metadatas.Add(await m_client.GetMetadata<metadataJson>(_snippedResponse));
+            Debug.Log("Queried: " + _id);
             
         }
 
         Constants.userMetadatas = m_metadatas;
+        Debug.Log(m_metadatas[0].name);
     }
 }

@@ -32,6 +32,7 @@ public class UnlockManager : MonoBehaviour
         //Creates new object to hold users L2 NFTs.
         m_Tokens = new TokenJson();
 
+
         //Sets up buttons on Unlock scene.
         button_Unlock.interactable = true;
         button_Proceed.interactable = false;
@@ -105,7 +106,7 @@ public class UnlockManager : MonoBehaviour
             //if the account information is not empty or null, we replace the keyNonce at the end.
             if (m_Account.keySeed != "" || m_Account.keySeed != null)
             {
-                _keyseedMsg = _keyseedMsg + (m_Account.keyNonce - 1).ToString();
+                _keyseedMsg = _keyseedMsg.Remove(_keyseedMsg.Length -1 , 1) + (m_Account.keyNonce - 1).ToString();
             }
             else
             {
