@@ -58,6 +58,9 @@ Feel free to raise any issues if you come across any problems, I will try to res
 If you wish to support the project, you can follow [@LoopmonNetwork](https://twitter.com/LoopmonNetwork) on twitter, join our discord or on Reddit [r/LoopMonsters](https://www.reddit.com/r/LoopMonsters/).
 Also give Fudgey a follow [@fudgeyDOTeth](https://twitter.com/fudgeyDOTeth).
 
+## Terms and Conditions
+This cannot be sold or resold, or integrate any components as a paid service. Any derivative of this must be free.
+
 ## Credits
 Loopmon - Signing and authentication Integration
 donation address: monster.loopmon.eth
