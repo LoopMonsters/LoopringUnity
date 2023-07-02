@@ -9,7 +9,7 @@ Notes:
 - You MUST switch your taget platform to WebGL (File > Build Settings).
 - [Chainsafe](https://github.com/ChainSafe/) SDK is used to query an ethereum smart contract.
 - [WalletConnectUnity](https://github.com/WalletConnect/WalletConnectUnity) is used to handle the WalletConnect authentication and signing.
-
+- Walletconnect is currently disabled due to a new update to the API, this is getting resolved ASAP.
 
 ## Features
 
@@ -19,7 +19,7 @@ Notes:
 
 ## Dapps using LoopringUnity
 __Submit any to admin@loopmon.com__
-- Loop Monsters Alpha [Play](https://play.loopmon.com) 
+
 
 ## Current API Calls
 
@@ -35,6 +35,11 @@ All of the responses from these functions are stored in an object with all of it
 | GetTokenBalance | Gets users NFT data |
 | ResolveENS | Gets Loopring ENS|
 | GetMetadata | Gets Metadata from IPFS |
+| Query Smart Contracts | Query Smart Contracts to get metadata info |
+| Get NFT Withdrawls | Gets NFT Withdrawl data |
+| Get NFT Deposits | Gets NFT Deposit data |
+| Get NFT Mints | Gets NFT Mint data |
+| Get NFT Transers | Gets NFT Transfer data |
 
 
 ## Installation
