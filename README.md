@@ -60,7 +60,7 @@ You **ALWAYS** want to ensure your API and Privatekey are being handled safely, 
 ## Support
 Feel free to raise any issues if you come across any problems, I will try to resolve them asap.
 
-If you wish to support the project, you can follow [@LoopmonNetwork](https://twitter.com/LoopmonNetwork) on twitter, join our discord or on Reddit [r/LoopMonsters](https://www.reddit.com/r/LoopMonsters/).
+If you wish to support the project, you can follow [@LoopmonNetwork](https://twitter.com/LoopmonNetwork) on twitter, join our discord or on Reddit [r/LoopMon](https://www.reddit.com/r/LoopMon/).
 Also give Fudgey a follow [@fudgeyDOTeth](https://twitter.com/fudgeyDOTeth).
 
 ## Terms and Conditions
