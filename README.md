@@ -36,10 +36,10 @@ All of the responses from these functions are stored in an object with all of it
 | ResolveENS | Gets Loopring ENS|
 | GetMetadata | Gets Metadata from IPFS |
 | Query Smart Contracts | Query Smart Contracts to get metadata info |
-| Get NFT Withdrawls | Gets NFT Withdrawl data |
-| Get NFT Deposits | Gets NFT Deposit data |
-| Get NFT Mints | Gets NFT Mint data |
-| Get NFT Transers | Gets NFT Transfer data |
+| GetNFTWithdrawalHistory | Gets NFT Withdrawl data |
+| GetNFTDepositHistory | Gets NFT Deposit data |
+| GetNFTMintHistory | Gets NFT Mint data |
+| GetNFTTransferHistory | Gets NFT Transfer data |
 
 
 ## Installation
