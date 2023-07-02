@@ -51,6 +51,13 @@ All of the responses from these functions are stored in an object with all of it
 5. Build and Run, the demo shows the first 8 characters of your L2 API key so you can verify it is correct.
 
 
+## How to use
+
+1. Navigate to ApiCaller.cs to see the available functions.
+2. In your script create a variable with the datatype that of the function you would like to call (see JsonOBJs folder).
+3. Set the value of that variable to the function of the ApiCaller.cs function.
+4. The data returned will be stored in that variable.
+
 
 ## Security
 

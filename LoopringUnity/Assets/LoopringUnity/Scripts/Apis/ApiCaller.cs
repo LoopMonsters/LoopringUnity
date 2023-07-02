@@ -9,6 +9,17 @@ public class APICaller : MonoBehaviour
     This has an m_ApiEndpont variable which points to Looprings API,
     I kept making mistakes like a donut when making the var _urls in the
     requests below, so somtimes I manually put in the string.
+	
+	Available functions:
+	- GetAPIKEY(accountId, response)
+	- GetAccountIDTask(wallet)
+	- GetNFTWithdrawalHistory(apiKey, accountId)
+	- GetNFTDepositHistory(apiKey, accountId)
+	- GetNFTMintHistory(apiKey, accountId)
+	- GetNFTTransferHistory(apiKey, accountId)
+	- GetTokenBalance(accountId, apiKey, tokenAddress)
+	- ResolveEns(walletAddress)
+	- GetMetadata(ipfsHash)
 
     */
     public string m_ApiEndpoint = "https://api3.loopring.io/api/v3/";
