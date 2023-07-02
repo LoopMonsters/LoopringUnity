@@ -26,15 +26,4 @@ public class MainPageManager : MonoBehaviour
         m_ApiKey = "";
     }
 
-
-    //Changes APIKey text to become users NFT names in wallet. (SmartContract.QuerySC has to run first).
-    public void LoadQueryData()
-    {
-        
-        foreach(metadataJson met in Constants.userMetadatas)
-        {
-            text_apiKey.text = text_apiKey.text + " | " + met.name;
-        }
-    }
-
 }

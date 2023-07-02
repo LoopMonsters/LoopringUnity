@@ -581,7 +581,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 329687717}
   m_OnClick:
     m_PersistentCalls:
@@ -672,7 +672,7 @@ MonoBehaviour:
   connectOnStart: 1
   createNewSessionOnSessionDisconnect: 1
   connectSessionRetryCount: 3
-  customBridgeUrl: https://f.bridge.walletconnect.org
+  customBridgeUrl: https://bridge.walletconnect.org
   chainId: 1
   ConnectedEvent:
     m_PersistentCalls:
@@ -708,7 +708,7 @@ MonoBehaviour:
     Description: Loop Monsters Alpha
     URL: https://loopmon.com
     Icons:
-    - https://loopmon.com/wp-content/uploads/2022/03/icon.ico
+    - 
     Name: Loop Monsters Alpha
 --- !u!114 &333705139
 MonoBehaviour:

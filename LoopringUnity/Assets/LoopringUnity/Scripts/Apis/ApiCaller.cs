@@ -67,7 +67,112 @@ public class APICaller : MonoBehaviour
             return default;
         }
     }
+    public async Task<TResultType> GetNFTWithdrawalHistory<TResultType>(string _apiKey, string _id)
+    {
+        string _json;
+        var _url = m_ApiEndpoint + "user/nft/withdrawals?accountId=" + _id;
+        using var _www = UnityWebRequest.Get(_url);
+        _www.SetRequestHeader("Content-Type", "application/json");
+        _www.SetRequestHeader("X-API-KEY", _apiKey);
+        var _operation = _www.SendWebRequest();
 
+        while (!_operation.isDone)
+        {
+            await Task.Yield();
+        }
+
+        if (_www.result == UnityWebRequest.Result.Success)
+        {
+            _json = _www.downloadHandler.text;
+            var _result = JsonUtility.FromJson<TResultType>(_json);
+            Debug.Log("success");
+            return _result;
+        }
+        else
+        {
+            return default;
+        }
+    }
+
+    public async Task<TResultType> GetNFTDepositHistory<TResultType>(string _apiKey, string _id)
+    {
+        string _json;
+        var _url = m_ApiEndpoint + "user/nft/deposits?accountId=" + _id;
+        using var _www = UnityWebRequest.Get(_url);
+        _www.SetRequestHeader("Content-Type", "application/json");
+        _www.SetRequestHeader("X-API-KEY", _apiKey);
+        var _operation = _www.SendWebRequest();
+
+        while (!_operation.isDone)
+        {
+            await Task.Yield();
+        }
+
+        if (_www.result == UnityWebRequest.Result.Success)
+        {
+            _json = _www.downloadHandler.text;
+            var _result = JsonUtility.FromJson<TResultType>(_json);
+            Debug.Log("success");
+            return _result;
+        }
+        else
+        {
+            return default;
+        }
+    }
+
+    public async Task<TResultType> GeNFTtMintHistory<TResultType>(string _apiKey, string _id)
+    {
+        string _json;
+        var _url = m_ApiEndpoint + "user/nft/mints?accountId=" + _id;
+        using var _www = UnityWebRequest.Get(_url);
+        _www.SetRequestHeader("Content-Type", "application/json");
+        _www.SetRequestHeader("X-API-KEY", _apiKey);
+        var _operation = _www.SendWebRequest();
+
+        while (!_operation.isDone)
+        {
+            await Task.Yield();
+        }
+
+        if (_www.result == UnityWebRequest.Result.Success)
+        {
+            _json = _www.downloadHandler.text;
+            var _result = JsonUtility.FromJson<TResultType>(_json);
+            Debug.Log("success");
+            return _result;
+        }
+        else
+        {
+            return default;
+        }
+    }
+    public async Task<TResultType> GetNFTTransferHistory<TResultType>(string _apiKey, string _id)
+    {
+        string _json;
+        var _url = m_ApiEndpoint + "user/nft/transfers?accountId=" + _id;
+        using var _www = UnityWebRequest.Get(_url);
+        _www.SetRequestHeader("Content-Type", "application/json");
+        _www.SetRequestHeader("X-API-KEY", _apiKey);
+        var _operation = _www.SendWebRequest();
+
+        while (!_operation.isDone)
+        {
+            await Task.Yield();
+        }
+
+        if (_www.result == UnityWebRequest.Result.Success)
+        {
+            _json = _www.downloadHandler.text;
+            var _result = JsonUtility.FromJson<TResultType>(_json);
+            Debug.Log("success");
+            return _result;
+        }
+        else
+        {
+            return default;
+        }
+    }
 
     public async Task<TResultType> GetTokenBalance<TResultType>(string _accId, string _apiKey, string _tokenAddrs)
     {

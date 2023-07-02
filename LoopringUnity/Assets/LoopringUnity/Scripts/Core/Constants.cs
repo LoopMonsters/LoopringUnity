@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 public static class Constants
 {
     //This is not a constant, but its easier to keep this value here.
@@ -14,8 +12,8 @@ public static class Constants
 
 
     //Required for API calls for NFT data and pinging ethereum smart contract
-    public const string TOKENCONTRACT = "";
-    public const string IPFSNODE = "https://ipfs.io/ipfs/"; //Set to public gateway, set to private for better perfomance
+    public const string TOKENCONTRACT = "0x33af5f2a46d8132ca7d948ee51ba156b1aca1bcd"; //Default set to Loopmon beta contract
+    public const string IPFSNODE = "https://monster.mypinata.cloud/ipfs/"; //Set to public node, set to private for better perfomance
 
 
     //Scenes.
@@ -26,8 +24,6 @@ public static class Constants
 
     //Users NFT data
     public static TokenJson Tokens;
-
-    public static List<metadataJson> userMetadatas = new List<metadataJson>();
 
 
 }

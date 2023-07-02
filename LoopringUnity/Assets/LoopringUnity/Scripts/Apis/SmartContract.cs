@@ -1,36 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using UnityEngine;
+using System.Threading.Tasks;
 
 public class SmartContract : MonoBehaviour
 {
-
     public List<string> nftIds = new List<string>();
+    public List<metadataJson> m_Metadatas = new List<metadataJson>();
+    private APICaller m_client;
 
-    private List<metadataJson> m_metadatas = new List<metadataJson>();
-    private APICaller m_client = new APICaller();
-
-
-    void Start()
-    {
-        if (Constants.WALLET == "") return;
-
-        foreach (Data d in Constants.Tokens.data)
-        {
-            if(int.Parse(d.total) >= 1)
-            {
-                nftIds.Add(d.nftData);
-            }
-        }
-    }
-    public async void QuertSmartContract()
-    {
-        
-        Debug.Log("Starting DL");
-        await QuerySC();
-        Debug.Log("DL Finished");
-    }
     public async Task QuerySC()
     {
         string _chain = "ethereum";
@@ -46,12 +24,20 @@ public class SmartContract : MonoBehaviour
             string _args = "[\"" + _id + "\"]";
             string _response = await EVM.Call(_chain, _network, _contract, _abi, _method, _args);
             string _snippedResponse = _response.Remove(0, 7);
-            m_metadatas.Add(await m_client.GetMetadata<metadataJson>(_snippedResponse));
-            Debug.Log("Queried: " + _id);
-            
+            var meta = await m_client.GetMetadata<metadataJson>(_snippedResponse);
+            if (meta == null) continue;
+            meta.nftid = _id;
+            m_Metadatas.Add(meta);
         }
 
-        Constants.userMetadatas = m_metadatas;
-        Debug.Log(m_metadatas[0].name);
+        foreach (metadataJson _mdata in m_Metadatas)
+        {
+
+        string _snippedModelIPFS = Constants.IPFSNODE + _mdata.model.Remove(0, 7);
+        //url_ipfs.Add(_snippedModelIPFS);
+
+
+        }
+
     }
 }

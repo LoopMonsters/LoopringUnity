@@ -92,7 +92,7 @@ public static class PoseidonHelper
         if (!skipPublicKeyCalculation)
             publicKey = mulPointEscalar(Base8, secertKey, p);
 
-        return ("0x" + publicKey[0].ToString("x").PadLeft(63, '0'), "0x" + publicKey[1].ToString("x").PadLeft(63, '0'), "0x" + secertKey.ToString("x").PadLeft(63, '0'), rawKey.ethAddress);
+        return ("0x" + publicKey[0].ToString("x").PadLeft(64, '0'), "0x" + publicKey[1].ToString("x").PadLeft(64, '0'), "0x" + secertKey.ToString("x").PadLeft(64, '0'), rawKey.ethAddress);
     }
     public static BigInteger ParseHexUnsigned(string toParse)
     {
